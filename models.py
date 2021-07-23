@@ -3,12 +3,17 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-# database_path = os.environ['DATABASE_URL']
-database_path = os.environ.get('DATABASE_URL')
-# database_path = 'postgresql://postgres:xxxxxxa@localhost:5432/testcap'
-# database_path = 'postgres://gnqcbhnowedjho:641408faff3ec18a75efe8f513572182c30a2edaa25a454cb51b673e4e19cad6@ec2-54-173-31-84.compute-1.amazonaws.com:5432/d34nsrc2mti44q'
+from dotenv import load_dotenv
+load_dotenv()
+
+database_path = os.getenv("DATABASE_URL")
+# database_path = 'postgresql://postgres:doublea@localhost:5432/testcap'
+# database_path = 'postgres://rreakxlnuymdsk:172a4e1da231026e08fb09d4c80f3231b7e6b08cbbd3b1dfd8844421fbf98ec6@ec2-52-23-40-80.compute-1.amazonaws.com:5432/d93bv217jfk5vh'
+# database_path = 'postgres://wlqgounsvufolj:742ba2fb146391690bad46cddd272a6e597b6e8702b67a04cbd62fb164508da6@ec2-52-23-40-80.compute-1.amazonaws.com:5432/d9v89l5k5pmonn'
 
 db = SQLAlchemy()
+
+print(database_path)
 
 '''
 setup_db(app)
@@ -27,7 +32,7 @@ Person
 Have title and release year
 '''
 class Person(db.Model):  
-  __tablename__ = 'People'
+  __tablename__ = 'People1'
 
   id = Column(Integer, primary_key=True)
   name = Column(String)
